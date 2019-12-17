@@ -37,16 +37,34 @@
   }
 }
 
+@keyframes scaleimg {
+  0% {
+    transform: scale(1.0) 
+}
+  100% {
+    transform: scale(1.1);
+  }
+}
 
 .meal-img {
   width: 300px; 
   object-fit: cover;
   margin: 20px auto;
+  transform: scale(1.0) 1s
 }
+
+.meal-img:hover {
+  animation: scaleimg 1.5s ease both;
+}
+
 .recipe-container {
-  border: 1px solid grey;
-  border-radius: 10px;;
-  margin: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border: 5px groove lightsalmon;
+  box-shadow: 5px 5px 5px grey;
+  border-radius: 15px;
+  margin: 20px;
   height: 300px;
   width: 400px;
 
@@ -57,7 +75,12 @@
   color: coral;
 }
 
+.recipe-link:hover {
+  color: rgb(175, 87, 55)
+}
+
 .recipe-button {
   border-radius: 10px;
   margin: 10px;
+  box-shadow: 2px 2px 2px grey;
 }

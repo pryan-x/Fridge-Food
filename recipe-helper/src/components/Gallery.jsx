@@ -26,7 +26,9 @@ render() {
   const recipeContainer = this.state.topNews.map(news => 
     <div className='recipe-container'> 
   <img className='meal-img' key="key" src={news.urlToImage} href="http://www.google.com/"/>
-  <button className='recipe-button'><a className='recipe-link' href= {news.url} target='blank'>{news.title}</a></button>
+  <button className='recipe-button'>
+    <a className='recipe-link' href= {news.url} target='blank'>{news.title}</a>
+    </button>
 </div>)
 
 
