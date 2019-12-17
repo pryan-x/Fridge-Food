@@ -36,3 +36,28 @@
     transform: rotate(360deg);
   }
 }
+
+
+.meal-img {
+  width: 300px; 
+  object-fit: cover;
+  margin: 20px auto;
+}
+.recipe-container {
+  border: 1px solid grey;
+  border-radius: 10px;;
+  margin: 5px;
+  height: 300px;
+  width: 400px;
+
+}
+.recipe-link {
+  text-decoration: none;
+  font-size: 12px;
+  color: coral;
+}
+
+.recipe-button {
+  border-radius: 10px;
+  margin: 10px;
+}
