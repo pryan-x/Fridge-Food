@@ -1,0 +1,46 @@
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid orange;
+    box-shadow: 5px 5px 2px grey;
+    
+}
+
+.header-home  {
+    display: flex;
+    justify-content: space-evenly;
+    border: 1px solid red;
+    align-items: center;
+    width: 30%;
+    font-family: Helvetica;
+    font-size: 18px;
+    
+}
+.recipes {
+    text-decoration: underline;
+    text-decoration-color: #ff9e25;
+}
+.header-logo {
+    margin-left: -20%;
+    
+}
+
+@media only screen and (max-width: 500px) {
+    .header-home p {
+        display:none;
+    }
+    .header-home {
+        background-image: url('./images/icons8-menu-50.png');
+        width: 5%;
+        height: 50%;
+    }
+
+    .header-logo {
+        font-size: 18px;
+        display: flex;
+        justify-content: center;
+        margin-left: 30%;
+    }
+}
+
+
