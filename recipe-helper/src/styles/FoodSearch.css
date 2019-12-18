@@ -1,0 +1,28 @@
+.search-dropdown {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    height: 44px;
+    border: solid 1px #888888;
+    width: 50%;
+    min-width: 250px;
+    max-width: 375px;
+    margin: 0 10px;
+}
+
+.search-dropdown-menu {
+    flex-direction: column;
+    position: absolute;
+    top: 100px;
+}
+
+.results {
+    display: flex;
+    flex-direction: column;
+}  
+
+.added-foods {
+    display: flex;
+    flex-direction: column;
+}
