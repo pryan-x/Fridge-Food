@@ -1,9 +1,8 @@
 import React from 'react';
 import './Header.css'
-import './images/fridge.png'
+import fridge from './images/fridge-orange.png'
 import Nav from './Nav'
-
-
+import Search from './Search'
 
 const Header = () => {
     return (
@@ -14,13 +13,14 @@ const Header = () => {
                     <p className="recipes"> Find Recipes</p>
                     <p>Contact</p>
                     <p>About Us</p>
-                    <Nav/>
                 </div>
+                <Nav />
                 <div className="header-logo">
-                    <img src='./images/fridge.png' alt="logo"></img>
+                    <img className="fridge" src={fridge} alt="logo"></img>
                     <p>Fridge Food</p>
                 </div>
                 <div className="food-container">
+                    <Search />
                     <p>search placeholder</p>
                 </div>
             </div>
