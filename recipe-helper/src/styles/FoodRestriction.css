@@ -1,0 +1,17 @@
+.checkbox-dropdown {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    height: 44px;
+    border: solid 1px #888888;
+    width: 50%;
+    min-width: 250px;
+    max-width: 375px;
+    margin: 0 10px;
+}
+
+.checkbox-dropdown-menu {
+    position: absolute;
+    flex-direction: column;
+}
