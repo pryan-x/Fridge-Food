@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import Selection from './Selection.jsx'
 import Fuse from 'fuse.js';
 import { list } from './foods'
@@ -19,6 +20,9 @@ const options = {
 };
 const fuse = new Fuse(list, options);
 
+import Header from '../components/Header'
+
+
 class Container extends Component {
     constructor(props) {
         super(props)
@@ -29,6 +33,7 @@ class Container extends Component {
             foodRestrictions: []
         }
     }
+        this.state = {
 
     searchforResults = (input) => {
         let results = fuse.search(`${input}`)
@@ -100,11 +105,16 @@ class Container extends Component {
         }
     }
 
-    render() { 
-        return (  
-            <Selection handleCheck={this.handleCheck} handleInput={this.handleInput} removeFood={this.removeFood} addFood={this.addFood} renderAddedFoods={this.renderAddedFoods} renderResults={this.renderResults} searchforResults={this.searchforResults} />
+    render() {
+        return (
+            <>
+                <Header/>
+                <Selection handleCheck={this.handleCheck} handleInput={this.handleInput} removeFood={this.removeFood} addFood={this.addFood} renderAddedFoods={this.renderAddedFoods} renderResults={this.renderResults} searchforResults={this.searchforResults} />
+
+
+            </>
         )
-    }
+    } 
 }
- 
+
 export default Container;
