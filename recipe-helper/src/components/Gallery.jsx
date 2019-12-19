@@ -21,12 +21,6 @@ class Gallery extends React.Component {
     };
   }
 
-  // textFix = (replacethis, arr) => {
-  //   return replacethis.map(str=>{
-  //     return str.replace(/-/g, " ");       
-  //   })
-  // };
-
   
 
   //TO DO: VIEW BUTTON, MOBILE INFINITE GLITCH,
