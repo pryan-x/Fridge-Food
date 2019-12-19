@@ -57,7 +57,7 @@ button {
     font-weight: 300;
     margin-left: 10px;
 }
-.searchbar{
+/* .searchbar{
     z-index: 2;
     border: 1px solid black;
     display: flex;
@@ -71,7 +71,7 @@ button {
     max-width: 375px;
     margin: 0 10px; 
     font-size: 16px;  
-}
+} */
 
 .dropdown-wrapper {
     width: 47%;
@@ -111,14 +111,22 @@ button {
 .label {
     font-weight: bold;
     text-decoration: underline;
-    font-size:24px;
-   
+    font-family: Helvetica;
+    font-size: 26px;
+    font-weight: 500;
 }
 .content {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-family: Helvetica;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.space{
+    width: 140px;
 }
 
 @media (max-width: 500px) {

@@ -19,10 +19,7 @@ const Header = () => {
                     <img className="fridge" src={fridge} alt="logo"></img>
                     <p>Fridge Food</p>
                 </div>
-                <div className="food-container">
-                    <div className = "placeholder">
-                        
-                    </div>
+                <div className="space">
                 </div>
             </div>
     

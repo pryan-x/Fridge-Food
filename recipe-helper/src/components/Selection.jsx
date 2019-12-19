@@ -18,20 +18,39 @@ class Selection extends React.Component {
 
 
     fetchRestrictedFoods = async (query, restrictions) => {
-        try {
-            const ingredients = await Axios.get(`https://api.edamam.com/search?q=${query}&Health=${restrictions}&app_id=1da5f0ed&app_key=${IEX_TOKEN}`)
-            console.log(ingredients)
+        if (restrictions) {
+            try {
+                const ingredients = await Axios.get(`https://api.edamam.com/search?q=${query}&Health=${restrictions}&app_id=1da5f0ed&app_key=${IEX_TOKEN}`)
+                console.log(ingredients)
 
-            this.setState({
-                ingredients: ingredients.data.hits
-            })
-            console.log(this.state.ingredients)
-            this.setState({
-                view: true
-            })
+                this.setState({
+                    ingredients: ingredients.data.hits
+                })
+                console.log(this.state.ingredients)
+                this.setState({
+                    view: true
+                })
 
-        } catch (error) {
+            } catch (error) {
 
+            }
+        } else {
+            try {
+                console.log(this.state.ingredients)
+                const ingredients = await Axios.get(`https://api.edamam.com/search?q=${query}&app_id=1da5f0ed&app_key=${IEX_TOKEN}`)
+                console.log(ingredients)
+
+                this.setState({
+                    ingredients: ingredients.data.hits
+                })
+                console.log(this.state.ingredients)
+                this.setState({
+                    view: true
+                })
+
+            } catch (error) {
+
+            }
         }
 
     }
@@ -77,7 +96,7 @@ class Selection extends React.Component {
                     <input className="searchbar" type="text" value={this.state.inputValue} onChange={this.handleChange} placeholder="What do you want to eat" />
                     <div className='searchicon'></div>
                 </div> */}
-                <button className='search-button' onClick={() => this.fetchRestrictedFoods(this.state.inputValue, this.props.restrictedFoods)}>Search</button>
+                <button className='search-button' onClick={() => this.fetchRestrictedFoods(this.props.addedFoods, this.props.restrictedFoods)}>Search</button>
                 {results}
             </div>
 
