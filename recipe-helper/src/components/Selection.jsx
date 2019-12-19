@@ -36,6 +36,7 @@ class Selection extends React.Component {
             }
         } else {
             try {
+                console.log(this.state.ingredients)
                 const ingredients = await Axios.get(`https://api.edamam.com/search?q=${query}&app_id=1da5f0ed&app_key=${IEX_TOKEN}`)
                 console.log(ingredients)
 
@@ -95,7 +96,7 @@ class Selection extends React.Component {
                     <input className="searchbar" type="text" value={this.state.inputValue} onChange={this.handleChange} placeholder="What do you want to eat" />
                     <div className='searchicon'></div>
                 </div> */}
-                <button className='search-button' onClick={() => this.fetchRestrictedFoods(this.state.ingredients, this.props.restrictedFoods)}>Search</button>
+                <button className='search-button' onClick={() => this.fetchRestrictedFoods(this.props.addedFoods, this.props.restrictedFoods)}>Search</button>
                 {results}
             </div>
 
