@@ -1,126 +1,87 @@
 import React from "react";
-import {
-  CarouselProvider,
-  Slider,
-  Slide,
-  ButtonBack,
-  ButtonNext,
-  Image
-} from "pure-react-carousel";
-import "pure-react-carousel/dist/react-carousel.es.css";
-
-// import { Carousel } from 'react-responsive-carousel'
-// import './styles/Carousel.css'
-
-// import 'react-multi-carousel/lib/styles.css'
-import "./styles/Gallery.css";
-import { news } from "../seed";
-
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
+import './styles/Gallery.css';
+import { meals } from '../seed';
 
 class Gallery extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      topNews: []
+      currentIndex: 0,
+      meals: meals.hits,
+      recipe: meals.hits[0],
+      galleryItems: this.galleryItems(),
+      responsive: {
+        0: { items: 1 },
+        960: { items: 2 },
+        1024: { items: 2 },
+        1440: { items: 3 }
+      }
     };
+    console.log(this.state.galleryItems);
   }
 
-  componentDidMount() {
-    this.fetchTopNews();
-  }
+  // textReplace=() => {
+  //     let healthLabel = this.state.replacementText.toString();
+  //     let newHealthLabel = healthLabel.replace('-', ', ')
+  //     this({ healthLabel: newHealthLabel})
 
-  fetchTopNews = () => {
-    this.setState({ topNews: news["top-news"] });
-    console.log(news["top-news"]);
-  };
+  // }
+ 
+//FULLY RESPONSIVE AND MAPPED!
+//TO DO: VIEW BUTTON, HEALTH-LABEL-TEXT, MOBILE INFINITE GLITCH, 
+
+
+  slideTo = i => this.setState({ currentIndex: i });
+
+  onSlideChanged = e => this.setState({ currentIndex: e.item });
+
+  slideNext = () =>
+    this.setState({ currentIndex: this.state.currentIndex + 1 });
+
+  slidePrev = () =>
+    this.setState({ currentIndex: this.state.currentIndex - 1 });
+
+  galleryItems() {
+    return meals.hits.map(recipe => (
+      <div className="slide">
+        <img className="meal-img" src={recipe.recipe.image} alt="gavno" />
+        <div className="text-container">
+          <p className="meal-title">{recipe.recipe.label}</p>
+          <p className="health-diet-label">
+            {recipe.recipe.healthLabels}
+            {recipe.recipe.dietLabels}
+          </p>
+        </div>
+        <a className="view-link" target="blank" href={recipe.recipe.url}>
+          <button className="view-button">View</button>
+        </a>
+      </div>
+    ));
+  }
 
   render() {
-    // const recipeContainer = this.state.topNews.map(news => (
-    //   <div className="recipe-container">
-    //     <img
-    //       className="meal-img"
-    //       key="key"
-    //       src={news.urlToImage}
-    //       href="http://www.google.com/"
-    //     />
-    //     <button className="recipe-button">
-    //       <a className="recipe-link" href={news.url} target="blank">
-    //         View
-    //       </a>
-    //     </button>
-    //   </div>
-    // ));
-    console.log(this.state.topNews)
+    const { galleryItems, responsive, currentIndex } = this.state;
     return (
-      <CarouselProvider
-        orientation={"horizontal"}
-        naturalSlideWidth={100}
-        naturalSlideHeight={125}
-        step={2}
-        visibleSlides={3}
-        totalSlides={this.state.topNews.length}
-      >
-        <ButtonBack>Back</ButtonBack>
-        <Slider>
-        {this.state.topNews.map(news =>
-          <Slide><Image className='meal-img' src={news.urlToImage} alt='rec'/></Slide>
-              )}
-          
-          
-        </Slider>
+      <div className="main-container">
+        <button className='prev-button' onClick={() => this.slidePrev()}/>
+        <AliceCarousel
+          slideToIndex={currentIndex}
+          buttonsDisabled={true}
+          responsive={this.responsive}
+          items={galleryItems}
+          dotsDisabled={true}
+          infinite={false}
+          fadeOutAnimation={true}
+          onSlideChanged={this.onSlideChanged}
+          responsive={responsive}
+        />
 
-        <ButtonNext>Next</ButtonNext>
-      </CarouselProvider>
+        <button className='next-button' onClick={() => this.slideNext()} label='next'/>
+      </div>
     );
   }
 }
 
 export default Gallery;
-
-
-// additionalTransfrom={0}
-// arrows
-// autoPlaySpeed={3000}
-// centerMode={false}
-// className=""
-// containerClass="container"
-// dotListClass=""
-// draggable
-// focusOnSelect={false}
-// infinite
-// itemClass=""
-// keyBoardControl
-// minimumTouchDrag={80}
-// partialVisible
-// renderButtonGroupOutside={false}
-// renderDotsOutside={false}
-// responsive={{
-//   desktop: {
-//     breakpoint: {
-//       max: 3000,
-//       min: 1024
-//     },
-//     items: 3,
-//     partialVisibilityGutter: 40
-//   },
-//   mobile: {
-//     breakpoint: {
-//       max: 464,
-//       min: 0
-//     },
-//     items: 2,
-//     partialVisibilityGutter: 30
-//   },
-//   tablet: {
-//     breakpoint: {
-//       max: 1024,
-//       min: 464
-//     },
-//     items: 2,
-//     partialVisibilityGutter: 30
-//   }
-// }}
-// showDots={false}
-// sliderClass=""
-// slidesToSlide={1}
-// swipeable
