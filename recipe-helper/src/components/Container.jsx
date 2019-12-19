@@ -113,11 +113,12 @@ class Container extends Component {
         return (
             <>
                 <Header/>
+                <main>
                 <Selection handleCheck={this.handleCheck} handleInput={this.handleInput} removeFood={this.removeFood} addFood={this.addFood} renderAddedFoods={this.renderAddedFoods} renderResults={this.renderResults} onClickSearch={this.searchforResults} foodRestrictions={this.state.foodRestrictions}/>
                 <br></br>
-                <br></br>
-                <p style={{fontFamily: 'georgia', fontSize: '2em', textAlign:'center'}}>Popular Picks</p>
+                <p style={{margin: '0 0 32px 0', fontFamily: 'georgia', fontSize: '2em', textAlign:'center'}}>Popular Picks</p>
                 <Gallery />
+                </main>
             </>
         )
     } 
