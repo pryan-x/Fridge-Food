@@ -11,11 +11,10 @@ button {
 }
 
 .search-heading {
-    display: inline;
     font-family: Georgia;
     font-size: 48px;
     color: #000000;
-    margin: 0 10px;
+    margin-top: 3%;
     min-width: 290px;
 }
 
@@ -122,7 +121,16 @@ button {
     align-items: center;
 }
 
+@media (max-width: 500px) {
+    .search-container{
+        margin-top: 6%;
+    }
+    .search-heading{
+        margin-top: 20%;
+    }
+
 @media (max-width: 1000px) {
+
     .dropdown-container {
         min-width: unset;
         justify-content: center;
