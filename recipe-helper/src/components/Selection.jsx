@@ -15,14 +15,13 @@ class Selection extends React.Component {
             view: false
         }
     }
-    
+
 
     fetchRestrictedFoods = async (query, restrictions) => {
-        console.log('inside fn', query, restrictions)
         try {
             const ingredients = await Axios.get(`https://api.edamam.com/search?q=${query}&Health=${restrictions}&app_id=1da5f0ed&app_key=${IEX_TOKEN}`)
             console.log(ingredients)
-            
+
             this.setState({
                 ingredients: ingredients.data.hits
             })
@@ -30,53 +29,59 @@ class Selection extends React.Component {
             this.setState({
                 view: true
             })
-     
+
         } catch (error) {
 
         }
-    
+
     }
-    handleChange=(event)=>{
-        
-        this.setState({inputValue: event.target.value});
-      }
+    handleChange = (event) => {
+
+        this.setState({ inputValue: event.target.value });
+    }
 
     render() {
-        const results = this.state.ingredients && this.state.ingredients.map((ing) =>{
+        const results = this.state.ingredients && this.state.ingredients.map((ing) => {
             return (
-            <div className ="thefood">
-                <img src={ing.recipe.image} alt="" />
-                <div className="content">
-             <div className="label">
-                {ing.recipe.label}
+                <div className="thefoodcard">
+                    <div className="foodimg">
+                        <img src={ing.recipe.image} alt="" />
+                    </div>
+                    <div className="content">
+                        <div className="label">
+                            {ing.recipe.label}
+                        </div>
+                        <div className="ingredientLines">
+                            {ing.recipe.ingredients.map((ingredient) => {
+                                return (
+                                    <div>{ingredient.text} </div>
+                                )
+                            })}
+                        </div>
+                        <a href={ing.recipe.url}>SEE THE FULL RECIPE</a>
+                    </div>
                 </div>
-            <div className="ingredientLines">
-                <li>{ing.recipe.ingredientLines}</li>
-             </div>
-             {ing.recipe.url}
-             {ing.recipe.healthLabels}
-              </div>
-            </div>
-           
-         ) })
-         
+
+            )
+        })
+
         return (
-           
+
             <div className='search-container'>
                 <p className='search-heading'>Find Recipes:</p>
                 <div className='dropdown-container'>
                     <FoodSearch renderResults={this.props.renderResults} renderAddedFoods={this.props.renderAddedFoods} handleChange={this.props.handleInput} />
                     <FoodRestriction onCheck={this.props.handleCheck} />
-                </div> 
-                <input className= "searchbar" type="text" value={this.state.inputValue} onChange={this.handleChange} />
+                </div>
+                <div className="search">
+                    <input className="searchbar" type="text" value={this.state.inputValue} onChange={this.handleChange} placeholder="What do you want to eat" />
+                    <div className='searchicon'></div>
+                </div>
                 <button className='search-button' onClick={() => this.fetchRestrictedFoods(this.state.inputValue, this.props.restrictedFoods)}>Search</button>
-
                 {results}
-        
-                
             </div>
-            
-            
+
+
         )
     }
 }

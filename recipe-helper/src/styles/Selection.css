@@ -49,31 +49,67 @@
     margin-left: 10px;
 }
 .searchbar{
-    z-index: 5;
-    border: 1px solid black
+    z-index: 2;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    height: 42px;
+    border: solid 1px #888888;
+    width: 20%;
+    min-width: 250px;
+    max-width: 375px;
+    margin: 0 10px; 
+    font-size: 16px;  
 }
+
 .submit-button {
     z-index: 5 
 }
 .form {
     z-index: 5;
 }
-.thefood {
+.thefoodcard {
     display: flex;
-    justify-content: center;
-    border: 1px solid red
+    flex-direction: column;
+    border: 1px solid black;
+    width: 35%;
+    margin-top: 5%;
+    padding: 2%;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    
+}
+.foodimg {
+    vertical-align: baseline;
 }
 .label {
     font-weight: bold;
     text-decoration: underline;
-    border: 1px solid purple
+    font-size:24px;
+   
 }
-.ingredientLines {
-    border: 1px solid orange;
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-@media (max-width: 650px) {
+@media (max-width: 500px) {
     .dropdown-container {
         flex-wrap: wrap;
         justify-content: center;
+    }
+    .thefoodcard {
+        display: flex;
+        border: 1px solid black;
+        width: 100%;
+        box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.25);
+        border-radius: 15px;
+        
+    }
+    .ingredientLines{
+        display:none;
     }
 }
