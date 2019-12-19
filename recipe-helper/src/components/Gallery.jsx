@@ -1,37 +1,33 @@
 import React from "react";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
-import './styles/Gallery.css';
-import { meals } from '../seed';
+import "./styles/Gallery.css";
+import { meals } from "../seed";
 
 class Gallery extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      itemsInSlide: meals.hits.length,
       currentIndex: 0,
       meals: meals.hits,
       recipe: meals.hits[0],
       galleryItems: this.galleryItems(),
       responsive: {
         0: { items: 1 },
-        960: { items: 2 },
-        1024: { items: 2 },
+        768: { items: 2 },
         1440: { items: 3 }
       }
     };
     console.log(this.state.galleryItems);
   }
 
-  // textReplace=() => {
-  //     let healthLabel = this.state.replacementText.toString();
-  //     let newHealthLabel = healthLabel.replace('-', ', ')
-  //     this({ healthLabel: newHealthLabel})
+  textReplace = replacethis => {
+    replacethis.replace("-", " ");
+  };
 
-  // }
- 
-//FULLY RESPONSIVE AND MAPPED!
-//TO DO: VIEW BUTTON, HEALTH-LABEL-TEXT, MOBILE INFINITE GLITCH, 
-
+  //RESPONSIVE AND MAPPED!
+  //TO DO: VIEW BUTTON, HEALTH-LABEL-TEXT, MOBILE INFINITE GLITCH,
 
   slideTo = i => this.setState({ currentIndex: i });
 
@@ -65,7 +61,7 @@ class Gallery extends React.Component {
     const { galleryItems, responsive, currentIndex } = this.state;
     return (
       <div className="main-container">
-        <button className='prev-button' onClick={() => this.slidePrev()}/>
+        <button className="prev-button" onClick={() => this.slidePrev()} label="prev"/>
         <AliceCarousel
           slideToIndex={currentIndex}
           buttonsDisabled={true}
@@ -73,12 +69,12 @@ class Gallery extends React.Component {
           items={galleryItems}
           dotsDisabled={true}
           infinite={false}
-          fadeOutAnimation={true}
+          // fadeOutAnimation={true}
           onSlideChanged={this.onSlideChanged}
           responsive={responsive}
         />
-
-        <button className='next-button' onClick={() => this.slideNext()} label='next'/>
+        <button className="next-button" onClick={() => this.slideNext()} label="next"
+          />
       </div>
     );
   }
