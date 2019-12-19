@@ -1,6 +1,12 @@
 
 export const list =
     [
+        { name: "pork" },
+        { name: "lamb" },
+        { name: "duck" },
+        { name: "beef" },
+        { name: "chicken" },
+
         { name: "acorn squash" },
         { name: "alfalfa sprout" },
         { name: "amaranth" },
