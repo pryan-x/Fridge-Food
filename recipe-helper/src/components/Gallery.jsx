@@ -21,17 +21,15 @@ class Gallery extends React.Component {
     };
   }
 
-  textReplace = (replacethis) => {
-    return replacethis.map(str=>{
-      console.log(str)
-      return str.replace(/-/g, " ");
-    })
-    
-  };
+  // textFix = (replacethis, arr) => {
+  //   return replacethis.map(str=>{
+  //     return str.replace(/-/g, " ");       
+  //   })
+  // };
 
   
 
-  //TO DO: VIEW BUTTON, HEALTH-LABEL-TEXT, MOBILE INFINITE GLITCH,
+  //TO DO: VIEW BUTTON, MOBILE INFINITE GLITCH,
 
   slideTo = i => this.setState({ currentIndex: i });
 
@@ -50,8 +48,8 @@ class Gallery extends React.Component {
         <div className="text-container">
           <p className="meal-title">{recipe.recipe.label}</p>
           <p className="health-diet-label">
-            {this.textReplace(recipe.recipe.healthLabels)}</p>
-            <p className="health-diet-label">{this.textReplace(recipe.recipe.dietLabels)}</p>
+            {recipe.recipe.healthLabels.join(', ')}</p>
+            <p className="health-diet-label">{recipe.recipe.dietLabels}</p>
           
         </div>
         <a className="view-link" target="blank" href={recipe.recipe.url}>
@@ -62,9 +60,6 @@ class Gallery extends React.Component {
   }
 
   render() {
-    const str = 'another-dash'
-    console.log(str.replace('-', ' '))
-    
     const { galleryItems, responsive, currentIndex } = this.state;
     return (
       <div className="main-container">
