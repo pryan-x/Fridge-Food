@@ -1,8 +1,8 @@
 import React from 'react';
-import './Header.css'
+import '../styles/Header.css'
 import fridge from './images/fridge-orange.png'
 import Nav from './Nav'
-import Search from './Search'
+
 
 const Header = () => {
     return (
@@ -20,7 +20,6 @@ const Header = () => {
                     <p>Fridge Food</p>
                 </div>
                 <div className="food-container">
-                    <Search />
                     <p>search placeholder</p>
                 </div>
             </div>
