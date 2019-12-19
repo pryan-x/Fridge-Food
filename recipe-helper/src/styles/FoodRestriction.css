@@ -2,16 +2,39 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: relative;
     height: 44px;
     border: solid 1px #888888;
-    width: 50%;
-    min-width: 250px;
-    max-width: 375px;
-    margin: 0 10px;
 }
 
 .checkbox-dropdown-menu {
     position: absolute;
     flex-direction: column;
+    width: calc(100% - 2px);
+    align-items: flex-start;
+    border: solid 1px #888888;
+    border-top: unset;
+    background-color: white;
+    padding-top: 5px 0;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    margin: 0 25px;
+}
+
+.checkbox-container input {
+    font-size: 50px;
+    margin: 0 15px;
+    border-radius: 2px;
+}
+
+.food-restriction {
+    display: flex;
+    align-items: center;
+    margin: unset;
+    min-height: 44px;
+    font-family: Helvetica;
+    font-size: 22px;
+    font-weight: 300;
 }

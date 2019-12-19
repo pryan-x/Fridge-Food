@@ -24,9 +24,10 @@ class Container extends Component {
         super(props)
         this.state = {  
             results: [],
-            input: null,
+            input: '',
             addedFoods: [],
-            foodRestrictions: []
+            foodRestrictions: [],
+            tempRef: null
         }
     }
 
@@ -34,7 +35,7 @@ class Container extends Component {
         let results = fuse.search(`${input}`)
         let simplifiedResults = []
         
-        for (let i = 0; i < 7; i++) {
+        for (let i = 0; i < 4; i++) {
             if (results[i]) {
                 simplifiedResults.push(results[i])
             }
@@ -48,17 +49,20 @@ class Container extends Component {
     }
 
     renderResults = () => {
-        return (
-            this.state.results.map((result, index) => (
-                <button key={index} onClick={() => this.addFood(result.item)}>{result.item}</button>
-            ))
-        )
+            if (this.state.input.length === 0) {
+                return 
+            } else {
+            return this.state.results.map((result, index) => (
+                <button className='result food-container' key={index} onClick={() => this.addFood(result.item)}><p key={index}>{result.item}</p><span>+</span></button>
+            ))}
     }
 
     renderAddedFoods = () => {
         return (
             this.state.addedFoods.map((result, index) => (
-                <div key={index} onClick={() => this.removeFood(index)}>{result}</div>
+                <div onClick={() => this.removeFood(index)} className='food-container'>
+                <p className='food' key={index}>{result}</p><span>–</span>
+                </div>
             ))
         )
     }
@@ -102,7 +106,9 @@ class Container extends Component {
 
     render() { 
         return (  
-            <Selection handleCheck={this.handleCheck} handleInput={this.handleInput} removeFood={this.removeFood} addFood={this.addFood} renderAddedFoods={this.renderAddedFoods} renderResults={this.renderResults} searchforResults={this.searchforResults} />
+            <div className='body'>
+                <Selection handleCheck={this.handleCheck} handleInput={this.handleInput} removeFood={this.removeFood} addFood={this.addFood} renderAddedFoods={this.renderAddedFoods} renderResults={this.renderResults} searchforResults={this.searchforResults}/>
+            </div>
         )
     }
 }
