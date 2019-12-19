@@ -1,0 +1,97 @@
+:root {
+  --button-color: #ff9e25
+  ;
+}
+
+
+.main-container {
+  display: flex;
+  justify-self: auto;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+  max-height: 40vh;
+  width: 80%;
+  margin-left: 5%
+}
+
+.slide {
+  margin: 1vw;
+}
+
+.meal-img {
+  object-fit: cover;
+  max-width: 40vw;
+  margin: 20px;
+  padding: 20px;
+  transition: 0.3s all;
+
+}
+
+.meal-img:hover {
+  animation: scaleimg 2s ease forwards;
+  animation-fill-mode: backwards;
+}
+.health-diet-label {
+  font-size: 0.7em;
+  /* max-width: 80%; */
+}
+
+.alice-carousel__stage-item {
+  padding-left: 0px;
+  padding-right: 0px;
+  box-sizing: border-box;
+}
+/* #root > div > div > div > div > div > ul > li:nth-child(1) {
+  width: 0.05em;
+} */
+
+/* BUTTONS */
+.view-button {
+  background: var(--button-color);
+  border-radius: 10px;
+  color: white;
+  text-decoration: none;
+  border: none;
+  height: 2.5em;
+  width: 5em;
+}
+.prev-button,
+.next-button {
+  background: none;
+  height: 6em;
+  width: 10em;
+  margin: 0;
+  padding: 25px;
+  position: relative;
+  outline: none;
+  border: none;
+  transition: 0.3s all;
+  /* outline: 1px solid red */
+}
+.prev-button {
+  background-image: url(../assets/left-arrow.png);
+  background-repeat: no-repeat;
+}
+.prev-button:hover {
+  background-image: url(../assets/left-hover-arrow.png);
+  background-repeat: no-repeat;
+  transition: 0.3s all;
+}
+.next-button {
+  background-image: url(../assets/right-arrow.png);
+  background-repeat: no-repeat;
+}
+.next-button:hover {
+  background-image: url(../assets/right-hover-arrow.png);
+  background-repeat: no-repeat;
+  transition: 0.3s all;
+}
+
+.prev-button:active{
+  background-image: url(../assets/left-arrow.png);
+}
+
+.next-button:active {
+  background-image: url(../assets/right-arrow.png);
+}
