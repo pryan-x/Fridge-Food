@@ -58,7 +58,7 @@ button {
     font-weight: 300;
     margin-left: 10px;
 }
-.searchbar{
+/* .searchbar{
     z-index: 2;
     border: 1px solid black;
     display: flex;
@@ -72,7 +72,7 @@ button {
     max-width: 375px;
     margin: 0 10px; 
     font-size: 16px;  
-}
+} */
 
 .dropdown-wrapper {
     width: 47%;
