@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import Gallery from './Gallery'
 import Selection from './Selection.jsx'
 import Fuse from 'fuse.js';
 import { list } from './foods'
@@ -112,7 +113,11 @@ class Container extends Component {
         return (
             <>
                 <Header/>
-                <Selection handleCheck={this.handleCheck} handleInput={this.handleInput} removeFood={this.removeFood} addFood={this.addFood} renderAddedFoods={this.renderAddedFoods} renderResults={this.renderResults} onClickSearch={this.searchforResults} foodRestrictions={this.state.foodRestrictions} addedFoods={this.state.addedFoods}/>
+                <Selection handleCheck={this.handleCheck} handleInput={this.handleInput} removeFood={this.removeFood} addFood={this.addFood} renderAddedFoods={this.renderAddedFoods} renderResults={this.renderResults} onClickSearch={this.searchforResults} foodRestrictions={this.state.foodRestrictions}/>
+                <br></br>
+                <br></br>
+                <p style={{fontFamily: 'georgia', fontSize: '2em', textAlign:'center'}}>Popular Picks</p>
+                <Gallery />
             </>
         )
     } 
