@@ -8,7 +8,7 @@ class Gallery extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      itemsInSlide: meals.hits.length,
+      itemsInSlide: 1,
       currentIndex: 0,
       meals: meals.hits,
       recipe: meals.hits[0],
@@ -19,14 +19,18 @@ class Gallery extends React.Component {
         1440: { items: 3 }
       }
     };
-    console.log(this.state.galleryItems);
   }
 
-  textReplace = replacethis => {
-    replacethis.replace("-", " ");
+  textReplace = (replacethis) => {
+    return replacethis.map(str=>{
+      console.log(str)
+      return str.replace(/-/g, " ");
+    })
+    
   };
 
-  //RESPONSIVE AND MAPPED!
+  
+
   //TO DO: VIEW BUTTON, HEALTH-LABEL-TEXT, MOBILE INFINITE GLITCH,
 
   slideTo = i => this.setState({ currentIndex: i });
@@ -46,9 +50,9 @@ class Gallery extends React.Component {
         <div className="text-container">
           <p className="meal-title">{recipe.recipe.label}</p>
           <p className="health-diet-label">
-            {recipe.recipe.healthLabels}
-            {recipe.recipe.dietLabels}
-          </p>
+            {this.textReplace(recipe.recipe.healthLabels)}</p>
+            <p className="health-diet-label">{this.textReplace(recipe.recipe.dietLabels)}</p>
+          
         </div>
         <a className="view-link" target="blank" href={recipe.recipe.url}>
           <button className="view-button">View</button>
@@ -58,6 +62,9 @@ class Gallery extends React.Component {
   }
 
   render() {
+    const str = 'another-dash'
+    console.log(str.replace('-', ' '))
+    
     const { galleryItems, responsive, currentIndex } = this.state;
     return (
       <div className="main-container">

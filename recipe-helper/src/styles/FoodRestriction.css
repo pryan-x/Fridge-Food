@@ -12,6 +12,5 @@
 }
 
 .checkbox-dropdown-menu {
-    position: absolute;
     flex-direction: column;
 }
