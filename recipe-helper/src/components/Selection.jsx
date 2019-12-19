@@ -73,10 +73,10 @@ class Selection extends React.Component {
                     <FoodSearch renderResults={this.props.renderResults} renderAddedFoods={this.props.renderAddedFoods} handleChange={this.props.handleInput} />
                     <FoodRestriction onCheck={this.props.handleCheck} />
                 </div>
-                <div className="search">
+                {/* <div className="search">
                     <input className="searchbar" type="text" value={this.state.inputValue} onChange={this.handleChange} placeholder="What do you want to eat" />
                     <div className='searchicon'></div>
-                </div>
+                </div> */}
                 <button className='search-button' onClick={() => this.fetchRestrictedFoods(this.state.inputValue, this.props.restrictedFoods)}>Search</button>
                 {results}
             </div>
