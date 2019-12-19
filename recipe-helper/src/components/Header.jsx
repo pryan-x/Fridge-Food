@@ -20,7 +20,9 @@ const Header = () => {
                     <p>Fridge Food</p>
                 </div>
                 <div className="food-container">
-                    <p>search placeholder</p>
+                    <div className = "placeholder">
+                        
+                    </div>
                 </div>
             </div>
     
