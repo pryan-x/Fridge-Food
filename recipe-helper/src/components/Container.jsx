@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import Selection from './Selection.jsx'
 import Fuse from 'fuse.js';
 import { list } from './foods'
@@ -18,6 +19,9 @@ const options = {
     id: "name"
 };
 const fuse = new Fuse(list, options);
+
+import Header from '../components/Header'
+
 
 class Container extends Component {
     constructor(props) {
@@ -104,13 +108,22 @@ class Container extends Component {
         }
     }
 
-    render() { 
-        return (  
-            <div className='body'>
-                <Selection handleCheck={this.handleCheck} handleInput={this.handleInput} removeFood={this.removeFood} addFood={this.addFood} renderAddedFoods={this.renderAddedFoods} renderResults={this.renderResults} searchforResults={this.searchforResults}/>
-            </div>
+    // render() { 
+    //     return (  
+    //         <div className='body'>
+    //             <Selection handleCheck={this.handleCheck} handleInput={this.handleInput} removeFood={this.removeFood} addFood={this.addFood} renderAddedFoods={this.renderAddedFoods} renderResults={this.renderResults} searchforResults={this.searchforResults}/>
+    //         </div>
+
+    render() {
+        return (
+            <>
+                <Header/>
+                <Selection handleCheck={this.handleCheck} handleInput={this.handleInput} removeFood={this.removeFood} addFood={this.addFood} renderAddedFoods={this.renderAddedFoods} renderResults={this.renderResults} searchforResults={this.searchforResults} />
+
+
+            </>
         )
-    }
+    } 
 }
- 
+
 export default Container;
