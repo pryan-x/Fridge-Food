@@ -136,6 +136,7 @@ button {
     .search-heading{
         margin-top: 20%;
     }
+}
 
 @media (max-width: 1000px) {
 
@@ -160,5 +161,4 @@ button {
     .ingredientLines{
         display:none;
     }
-}
 }
