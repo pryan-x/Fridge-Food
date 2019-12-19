@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-
+import React, { Component } from 'react'
 import Selection from './Selection.jsx'
 import Fuse from 'fuse.js';
 import { list } from './foods'
+import Header from '../components/Header' 
 
 const options = {
     shouldSort: true,
@@ -20,7 +20,6 @@ const options = {
 };
 const fuse = new Fuse(list, options);
 
-import Header from '../components/Header'
 
 
 class Container extends Component {
@@ -33,7 +32,6 @@ class Container extends Component {
             foodRestrictions: []
         }
     }
-        this.state = {
 
     searchforResults = (input) => {
         let results = fuse.search(`${input}`)
@@ -44,11 +42,6 @@ class Container extends Component {
                 simplifiedResults.push(results[i])
             }
         }
-        // for (let i = 0; simplifiedResults.length < 6; i++) {
-        //     if (results[i] && (results[i].item.length < 19)) {
-        //         simplifiedResults.push(results[i])
-        //     }
-        // }
         this.setState({ results: simplifiedResults });
     }
 
@@ -109,9 +102,7 @@ class Container extends Component {
         return (
             <>
                 <Header/>
-                <Selection handleCheck={this.handleCheck} handleInput={this.handleInput} removeFood={this.removeFood} addFood={this.addFood} renderAddedFoods={this.renderAddedFoods} renderResults={this.renderResults} searchforResults={this.searchforResults} />
-
-
+                <Selection handleCheck={this.handleCheck} handleInput={this.handleInput} removeFood={this.removeFood} addFood={this.addFood} renderAddedFoods={this.renderAddedFoods} renderResults={this.renderResults} onClickSearch={this.searchforResults} foodRestrictions={this.state.foodRestrictions}/>
             </>
         )
     } 

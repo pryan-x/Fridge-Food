@@ -32,6 +32,7 @@
     font-weight: 300;
     color: white;
     margin: 0 15px;
+    z-index: 2;
 }
 
 .symbol-container {
@@ -47,7 +48,29 @@
     font-weight: 300;
     margin-left: 10px;
 }
-
+.searchbar{
+    z-index: 5;
+    border: 1px solid black
+}
+.submit-button {
+    z-index: 5 
+}
+.form {
+    z-index: 5;
+}
+.thefood {
+    display: flex;
+    justify-content: center;
+    border: 1px solid red
+}
+.label {
+    font-weight: bold;
+    text-decoration: underline;
+    border: 1px solid purple
+}
+.ingredientLines {
+    border: 1px solid orange;
+}
 @media (max-width: 650px) {
     .dropdown-container {
         flex-wrap: wrap;

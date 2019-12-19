@@ -1,6 +1,6 @@
 import React from 'react'
 import Sidebar from "react-sidebar";
-import './Nav.css'
+import '../styles/Nav.css'
 import menu from './images/hamburger-icon.png'
 
 class Nav extends React.Component {
@@ -42,7 +42,7 @@ class Nav extends React.Component {
                 }
                 open={this.state.sidebarOpen}
                 onSetOpen={this.onsetSidebarOpen}
-                styles={{ sidebar: { background: "white", width: "40%" } }}
+                styles={{ sidebar: { background: "white", width: "40%", position: "fixed"} }}
             >
                 <button className="sidebarbtn" onClick={() => this.onSetSidebarOpen(true)}>
                     <img className="menu" src={menu} alt="menu"></img>
