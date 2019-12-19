@@ -34,6 +34,7 @@
     font-weight: 300;
     color: white;
     margin: 0 15px;
+    z-index: 2;
 }
 
 .symbol-container {
@@ -52,6 +53,21 @@
     font-size: 24px;
     font-weight: 300;
     margin-left: 10px;
+}
+.searchbar{
+    z-index: 2;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    height: 42px;
+    border: solid 1px #888888;
+    width: 20%;
+    min-width: 250px;
+    max-width: 375px;
+    margin: 0 10px; 
+    font-size: 16px;  
 }
 
 .dropdown-wrapper {
@@ -76,6 +92,32 @@
     width: 80px;
 }
 
+.thefoodcard {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    width: 35%;
+    margin-top: 5%;
+    padding: 2%;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+}
+.foodimg {
+    vertical-align: baseline;
+}
+.label {
+    font-weight: bold;
+    text-decoration: underline;
+    font-size:24px;
+   
+}
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 @media (max-width: 1000px) {
     .dropdown-container {
         min-width: unset;
@@ -86,5 +128,16 @@
 @media (max-width: 600px) {
     .dropdown-wrapper {
         width: 100%;
+    }
+    .thefoodcard {
+        display: flex;
+        border: 1px solid black;
+        width: 100%;
+        box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.25);
+        border-radius: 15px;
+        
+    }
+    .ingredientLines{
+        display:none;
     }
 }
