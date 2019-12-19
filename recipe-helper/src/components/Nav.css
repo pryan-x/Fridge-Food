@@ -1,0 +1,26 @@
+.sidebarbtn{
+    display: none;
+}
+
+@media only screen and (max-width: 500px) {
+.sidebarbtn{
+    display: inline;
+}
+.menu {
+    display: flex;
+    justify-content: flex-start;
+    width: 30%;
+    margin-left: 20%;
+    margin-top: 30%;
+    
+    
+}
+.sidebarbtn{
+    display: flex;
+    flex-direction: column;
+
+}
+.close-nav {
+    font-weight: bold;
+}
+}
