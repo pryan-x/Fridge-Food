@@ -20,7 +20,7 @@ class Selection extends React.Component {
     fetchRestrictedFoods = async (query, restrictions) => {
         if (restrictions) {
             try {
-                const ingredients = await Axios.get(`https://api.edamam.com/search?q=${query}&Health=${restrictions}&app_id=1da5f0ed&app_key=${IEX_TOKEN}`)
+                const ingredients = await Axios.get(`https://api.edamam.com/search?q=${query}&Health=${restrictions}&app_id=1da5f0ed&app_key=3a4857e1cb4457eed99dbbbd86999acd`)
                 console.log(ingredients)
 
                 this.setState({
@@ -37,7 +37,7 @@ class Selection extends React.Component {
         } else {
             try {
                 console.log(this.state.ingredients)
-                const ingredients = await Axios.get(`https://api.edamam.com/search?q=${query}&app_id=1da5f0ed&app_key=${IEX_TOKEN}`)
+                const ingredients = await Axios.get(`https://api.edamam.com/search?q=${query}&app_id=1da5f0ed&app_key=3a4857e1cb4457eed99dbbbd86999acd`)
                 console.log(ingredients)
 
                 this.setState({

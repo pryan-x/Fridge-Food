@@ -15,6 +15,7 @@ button {
     color: #000000;
     margin-top: 3%;
     min-width: 290px;
+    font-weight: 800;
 }
 
 .dropdown-container {
@@ -135,6 +136,7 @@ button {
     .search-heading{
         margin-top: 20%;
     }
+
 }
 
 @media (max-width: 1000px) {
@@ -160,4 +162,9 @@ button {
     .ingredientLines{
         display:none;
     }
+
+    .search-button {
+        margin: 0 15px 30px 15px;
+    }
 }
+

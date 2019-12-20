@@ -1,0 +1,25 @@
+.all {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 1300px;
+}
+
+.popular-picks {
+    margin-top: 20%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 2em;
+    text-align: center;
+}
+
+footer {
+    display: flex;
+    bottom: 60;
+    height: 10vh;
+    width: 100%;
+    background-color: orange;
+    align-self: flex-end;
+    flex-direction: column;
+
+}
+
