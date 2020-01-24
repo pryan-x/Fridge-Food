@@ -12,7 +12,7 @@
   justify-content: space-between;
   max-height: 40vh;
   width: 80%;
-  margin-left: 5%
+  margin-left: 8%
 }
 
 .slide {
@@ -32,9 +32,16 @@
   animation: scaleimg 2s ease forwards;
   animation-fill-mode: backwards;
 }
-.health-diet-label {
-  font-size: 0.7em;
-  /* max-width: 80%; */
+.meal-title {
+  font-size: 1.5em;
+}
+
+.health-label {
+  font-size: 1.3em;
+}
+
+.diet-label {
+  font-size: 1.1em;
 }
 
 .alice-carousel__stage-item {
@@ -94,4 +101,14 @@
 
 .next-button:active {
   background-image: url(../assets/right-arrow.png);
+}
+
+@media only screen and (max-width: 500px) {
+  
+    .main-container {
+      margin-left: 0
+  }
+    .next-button {
+      right: 20px;
+    }
 }

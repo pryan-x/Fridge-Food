@@ -4,6 +4,7 @@ import Selection from './Selection.jsx'
 import Fuse from 'fuse.js';
 import { list } from './foods'
 import Header from '../components/Header' 
+import '../styles/Container.css'
 
 const options = {
     shouldSort: true,
@@ -111,17 +112,16 @@ class Container extends Component {
 
     render() {
         return (
-            <>
+            <div className='all'>
                 <Header/>
                 <main>
-                <Selection handleCheck={this.handleCheck} handleInput={this.handleInput} removeFood={this.removeFood} addFood={this.addFood} renderAddedFoods={this.renderAddedFoods} renderResults={this.renderResults} onClickSearch={this.searchforResults} foodRestrictions={this.state.foodRestrictions}/>
+                <Selection addedFoods={this.state.addedFoods} handleCheck={this.handleCheck} handleInput={this.handleInput} removeFood={this.removeFood} addFood={this.addFood} renderAddedFoods={this.renderAddedFoods} renderResults={this.renderResults} onClickSearch={this.searchforResults} foodRestrictions={this.state.foodRestrictions}/>
                 <br></br>
                 <p style={{margin: '0 0 32px 0', fontFamily: 'georgia', fontSize: '2em', textAlign:'center'}}>Popular Picks</p>
                 <Gallery />
                 </main>
-            </>
+            </div>
         )
     } 
 }
-
 export default Container;

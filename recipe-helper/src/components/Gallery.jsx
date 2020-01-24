@@ -47,9 +47,9 @@ class Gallery extends React.Component {
         <img className="meal-img" src={recipe.recipe.image} alt="gavno" />
         <div className="text-container">
           <p className="meal-title">{recipe.recipe.label}</p>
-          <p className="health-diet-label">
+          <p className="health-label">
             {recipe.recipe.healthLabels.join(', ')}</p>
-            <p className="health-diet-label">{recipe.recipe.dietLabels}</p>
+            <p className="diet-label">{recipe.recipe.dietLabels}</p>
           
         </div>
         <a className="view-link" target="blank" href={recipe.recipe.url}>
