@@ -15,6 +15,7 @@
     border-top: unset;
     background-color: white;
     padding-top: 5px 0;
+    z-index: 101;
 }
 
 .checkbox-container {
